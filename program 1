@@ -1,0 +1,32 @@
+class BankAccount
+  def initialize(owner, balance = 0.0)
+    @owner = owner
+    @balance = balance
+  end
+
+  def deposit(amount)
+    if amount > 0
+      @balance += amount
+      puts "Deposited ₹#{amount}. New balance: ₹#{@balance}"
+    else
+      puts "Error: Deposit amount must be positive."
+    end
+  end
+
+  def withdraw(amount)
+    if amount > 0 && amount <= @balance
+      @balance -= amount
+      puts "Withdrew ₹#{amount}. Remaining balance: ₹#{@balance}"
+    else
+      puts "Error: Invalid withdrawal amount or insufficient balance."
+    end
+  end
+
+  def check_balance
+    puts "Current balance: ₹#{@balance}"
+  end
+end
+account = BankAccount.new("Alice", 1000)
+account.deposit(500)
+account.withdraw(200)
+account.check_balance
