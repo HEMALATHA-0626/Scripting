@@ -1,0 +1,40 @@
+class Vehicle
+  def initialize(make, model, year)
+    @make = make
+    @model = model
+    @year = year
+  end
+
+  def display_info
+    puts "#{@year} #{@make} #{@model}"
+  end
+
+  def perform_maintenance
+    puts "Performing general maintenance..."
+  end
+end
+
+class Car < Vehicle
+  def perform_maintenance
+    super
+    puts "Checking car engine oil and tire pressure..."
+  end
+end
+
+class Truck < Vehicle
+  def perform_maintenance
+    super
+    puts "Inspecting cargo and hydraulic systems..."
+  end
+end
+
+class Motorcycle < Vehicle
+  def perform_maintenance
+    super
+    puts "Lubricating chain and checking brakes..."
+  end
+end
+
+car = Car.new("Toyota", "Camry", 2022)
+car.display_info
+car.perform_maintenance
